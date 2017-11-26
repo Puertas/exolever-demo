@@ -32,3 +32,5 @@
   flex: 1 0 220px;
   padding-left: 5px;
 }
+
+mat-card { margin-bottom: 15px; }

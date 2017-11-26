@@ -12,6 +12,7 @@ import { ConsultantsComponent } from './consultants/consultants.component';
 
 import { ConsultantsService } from './consultants/consultants.service';
 import { ConsultantInfoComponent } from './consultants/consultant-info/consultant-info.component';
+import { ConsultantCommentsComponent } from './consultants/consultant-info/consultant-comments/consultant-comments.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ConsultantInfoComponent } from './consultants/consultant-info/consultan
     HeaderComponent,
     HomeComponent,
     ConsultantsComponent,
-    ConsultantInfoComponent
+    ConsultantInfoComponent,
+    ConsultantCommentsComponent
   ],
   imports: [
     BrowserModule,
