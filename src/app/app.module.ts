@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule, MatIconModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ConsultantsComponent } from './consultants/consultants.component';
+
+import { ConsultantsService } from './consultants/consultants.service';
 
 
 @NgModule({
@@ -21,12 +24,13 @@ import { ConsultantsComponent } from './consultants/consultants.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [ConsultantsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
