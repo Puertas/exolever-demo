@@ -2,7 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatButtonModule, MatIconModule, MatToolbarModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatTableModule,
+  MatFormFieldModule,
+  MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -28,7 +34,10 @@ import { ConsultantsService } from './consultants/consultants.service';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [ConsultantsService],
   bootstrap: [AppComponent]

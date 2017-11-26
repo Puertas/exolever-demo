@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { ConsultantsService } from './consultants.service';
 import { Subscription } from 'rxjs/Subscription';
+import { MatTableDataSource } from '@angular/material';
 
 import { Consultant } from '../models/consultant.model';
 
@@ -12,6 +13,8 @@ import { Consultant } from '../models/consultant.model';
 export class ConsultantsComponent implements OnInit, OnDestroy {
   consultants: Consultant[];
   consultantSub: Subscription;
+  tableColumns = ['id', 'name', 'shortName', 'email', 'details'];
+  dataSource = new MatTableDataSource<Consultant>(this.consultants);
 
   constructor(private consultantsService: ConsultantsService) { }
 
@@ -20,8 +23,19 @@ export class ConsultantsComponent implements OnInit, OnDestroy {
     this.consultantSub = this.consultantsService.consultantsChanged.subscribe(
       (consultants: Consultant[]) => {
         this.consultants = consultants;
+        this.dataSource = new MatTableDataSource<Consultant>(this.consultants);
       }
     );
+  }
+
+  applyFilter(filterValue: string): void {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
+  }
+
+  consultantDetails(id: number): void {
+    console.log('Consultant click: ' + id );
   }
 
   ngOnDestroy() {

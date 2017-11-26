@@ -1,3 +1,46 @@
-<div *ngFor="let consultant of consultants">
-  <span>Name: {{consultant.full_name}}</span>
+<div class="table__container mat-elevation-z8">
+  <div class="table__filter">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.full_name}} </mat-cell>
+    </ng-container>
+
+    <!-- Short Name Column -->
+    <ng-container matColumnDef="shortName">
+      <mat-header-cell *matHeaderCellDef> Short Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.short_name}} </mat-cell>
+    </ng-container>
+
+    <!-- email Column -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="details">
+      <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="consultantDetails(element.id)">
+          <mat-icon aria-label="Consultant details">keyboard_arrow_right</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: tableColumns;"></mat-row>
+  </mat-table>
 </div>
