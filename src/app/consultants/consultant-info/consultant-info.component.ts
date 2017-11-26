@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 import { Consultant } from './../../models/consultant.model';
 import { ConsultantsService } from '../consultants.service';
@@ -11,13 +12,19 @@ import { ConsultantsService } from '../consultants.service';
 })
 export class ConsultantInfoComponent implements OnInit {
   info: Consultant;
+  loading: boolean;
 
   constructor(private route: ActivatedRoute,
               private consultantsService: ConsultantsService) { }
 
   ngOnInit() {
+    this.loading = true;
     const id = this.route.snapshot.params['id'];
-    this.info = this.consultantsService.getConsultant(id);
+    const getConsultant = this.consultantsService.getConsultant(id);
+    getConsultant.then((consultant: Consultant) => {
+      this.loading = false;
+      this.info = consultant;
+    });
   }
 
 }

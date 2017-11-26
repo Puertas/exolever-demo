@@ -27,8 +27,18 @@ export class ConsultantsService {
     return this.consultants.slice();
   }
 
-  getConsultant(id: number): Consultant {
-    return this.consultants[id - 1];
+  getConsultant(id: number): Promise<Consultant> {
+    return new Promise((resolve) => {
+      if (this.consultants) {
+        resolve(this.consultants[id - 1]);
+      } else {
+        this.http.get<Consultant>(`http://demopeople.exolever.com/api/consultants/${id}/`).subscribe(
+          data => {
+            resolve(data);
+          }
+        );
+      }
+    });
   }
 
  }
