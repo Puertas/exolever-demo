@@ -1,0 +1,7 @@
+.loading__container {
+  text-align: center;
+}
+
+mat-spinner {
+  margin: 0 auto;
+}

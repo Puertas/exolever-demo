@@ -7,13 +7,14 @@ import {
   MatToolbarModule,
   MatTableModule,
   MatFormFieldModule,
-  MatInputModule } from '@angular/material';
+  MatInputModule,
+  MatProgressSpinnerModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
-  imports: [],
+  imports: [MatProgressSpinnerModule],
   declarations: [LoadingComponent],
   exports: [
     CommonModule,
@@ -24,7 +25,8 @@ import { LoadingComponent } from './loading/loading.component';
     MatIconModule,
     MatTableModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SharedModule { }
