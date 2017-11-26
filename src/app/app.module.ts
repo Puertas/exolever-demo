@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { ConsultantsComponent } from './consultants/consultants.component';
 
 import { ConsultantsService } from './consultants/consultants.service';
+import { ConsultantInfoComponent } from './consultants/consultant-info/consultant-info.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ConsultantsService } from './consultants/consultants.service';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    ConsultantsComponent
+    ConsultantsComponent,
+    ConsultantInfoComponent
   ],
   imports: [
     BrowserModule,

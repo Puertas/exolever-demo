@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { ConsultantsService } from './consultants.service';
 import { Subscription } from 'rxjs/Subscription';
+import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 
 import { Consultant } from '../models/consultant.model';
@@ -17,7 +18,8 @@ export class ConsultantsComponent implements OnInit, OnDestroy {
   tableColumns = ['id', 'name', 'shortName', 'email', 'details'];
   dataSource = new MatTableDataSource<Consultant>(this.consultants);
 
-  constructor(private consultantsService: ConsultantsService) { }
+  constructor(private consultantsService: ConsultantsService,
+              private router: Router) { }
 
   ngOnInit() {
     this.loading = true;
@@ -38,7 +40,7 @@ export class ConsultantsComponent implements OnInit, OnDestroy {
   }
 
   consultantDetails(id: number): void {
-    console.log('Consultant click: ' + id );
+    this.router.navigate([`/consultants/${id}`]);
   }
 
   ngOnDestroy() {

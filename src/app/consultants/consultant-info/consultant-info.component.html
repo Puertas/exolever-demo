@@ -1,0 +1,56 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <img class="card__avatar--circle" src="{{info.profile_picture}}" alt="User Picture">
+    </div>
+    <mat-card-title>{{info.full_name}}</mat-card-title>
+    <mat-card-subtitle>{{info.short_name}}</mat-card-subtitle>
+  </mat-card-header>
+  <hr>
+  <mat-card-content>
+    <h3 mat-subheader>Details</h3>
+    <!-- Email -->
+      <div class="item item__container">
+        <div class="item item__label">
+          <mat-icon mat-list-icon>email</mat-icon>
+          <span>eMail</span>
+        </div>
+        <div class="item item__value">
+          <span>{{info.email}}</span>
+        </div>
+      </div>
+    <!-- Status -->
+      <div class="item item__container">
+        <div class="item item__label">
+          <mat-icon mat-list-icon>mood</mat-icon>
+          <span>Status</span>
+        </div>
+        <div class="item item__value">
+          <span>{{info.status}}</span>
+        </div>
+      </div>
+    <!-- Gender -->
+      <div class="item item__container">
+        <div class="item item__label">
+          <mat-icon mat-list-icon>wc</mat-icon>
+          <span>Gender</span>
+        </div>
+        <div class="item item__value">
+          <span>{{info.gender}}</span>
+        </div>
+      </div>
+    <!-- Location -->
+      <div class="item item__container">
+        <div class="item item__label">
+          <mat-icon mat-list-icon>location_on</mat-icon>
+          <span>Location</span>
+        </div>
+        <div class="item item__value">
+          <span>{{info.location}}</span>
+        </div>
+      </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Comment</button>
+  </mat-card-actions>
+</mat-card>

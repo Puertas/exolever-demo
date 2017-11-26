@@ -28,7 +28,7 @@ export class ConsultantsService {
   }
 
   getConsultant(id: number): Consultant {
-    return this.consultants[id];
+    return this.consultants[id - 1];
   }
 
  }
