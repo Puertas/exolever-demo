@@ -11,6 +11,7 @@ import { Consultant } from '../models/consultant.model';
   styleUrls: ['./consultants.component.css']
 })
 export class ConsultantsComponent implements OnInit, OnDestroy {
+  loading: boolean;
   consultants: Consultant[];
   consultantSub: Subscription;
   tableColumns = ['id', 'name', 'shortName', 'email', 'details'];
@@ -19,11 +20,13 @@ export class ConsultantsComponent implements OnInit, OnDestroy {
   constructor(private consultantsService: ConsultantsService) { }
 
   ngOnInit() {
+    this.loading = true;
     this.consultantsService.storeConsultants();
     this.consultantSub = this.consultantsService.consultantsChanged.subscribe(
       (consultants: Consultant[]) => {
         this.consultants = consultants;
         this.dataSource = new MatTableDataSource<Consultant>(this.consultants);
+        this.loading = false;
       }
     );
   }

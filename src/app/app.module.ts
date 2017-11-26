@@ -2,14 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import {
-  MatButtonModule,
-  MatIconModule,
-  MatToolbarModule,
-  MatTableModule,
-  MatFormFieldModule,
-  MatInputModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,13 +24,7 @@ import { ConsultantsService } from './consultants/consultants.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule
+    SharedModule
   ],
   providers: [ConsultantsService],
   bootstrap: [AppComponent]
