@@ -11,7 +11,7 @@ export class ConsultantsService {
 
   constructor(private http: HttpClient) { }
 
-  storeConsultants(refresh: boolean): void {
+  storeConsultants(refresh = false): void {
     if (refresh || !this.consultants) {
       this.http.get<Consultant[]>('http://demopeople.exolever.com/api/consultants/').subscribe(
         data => {
