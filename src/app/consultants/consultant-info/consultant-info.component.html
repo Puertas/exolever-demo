@@ -64,8 +64,10 @@
       <p>{{info.short_me}}</p>
     </mat-card-content>
   </mat-card>
-  <div>
-    <h2>Comments</h2>
+  <h2 class="comments__title">Comments</h2>
+  <div class="comments__header">
+    <button mat-raised-button color="warn"
+      (click)="newComment()">New Comment</button>
   </div>
   <app-consultant-comments
     [comments]=info.comments></app-consultant-comments>

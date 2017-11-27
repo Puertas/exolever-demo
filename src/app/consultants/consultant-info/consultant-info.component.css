@@ -34,3 +34,12 @@
 }
 
 mat-card { margin-bottom: 15px; }
+
+.comments__title {
+  border-bottom: 1px solid #3f50b54d;
+  margin-bottom: 12px;
+}
+.comments__header {
+  margin-bottom: 15px;
+  text-align: right;
+}
