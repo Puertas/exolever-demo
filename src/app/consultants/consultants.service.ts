@@ -11,12 +11,16 @@ export class ConsultantsService {
 
   constructor(private http: HttpClient) { }
 
-  storeConsultants(): void {
-    this.http.get<Consultant[]>('http://demopeople.exolever.com/api/consultants/').subscribe(
-      data => {
-        this.setConsultants(data);
-      }
-    );
+  storeConsultants(refresh: boolean): void {
+    if (refresh || !this.consultants) {
+      this.http.get<Consultant[]>('http://demopeople.exolever.com/api/consultants/').subscribe(
+        data => {
+          this.setConsultants(data);
+        }
+      );
+    } else {
+      this.setConsultants(this.consultants);
+    }
   }
 
   setConsultants(consultants: Consultant[]): void {

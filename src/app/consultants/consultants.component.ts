@@ -23,7 +23,6 @@ export class ConsultantsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loading = true;
-    this.consultantsService.storeConsultants();
     this.consultantSub = this.consultantsService.consultantsChanged.subscribe(
       (consultants: Consultant[]) => {
         this.consultants = consultants;
@@ -31,6 +30,7 @@ export class ConsultantsComponent implements OnInit, OnDestroy {
         this.loading = false;
       }
     );
+    this.consultantsService.storeConsultants();
   }
 
   applyFilter(filterValue: string): void {
