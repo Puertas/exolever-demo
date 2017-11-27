@@ -1,0 +1,43 @@
+<div class="form__container">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <mat-form-field class="form__item--full">
+      <input matInput
+        placeholder="Subject"
+        id="subject"
+        name="subject"
+        ngModel
+        required>
+    </mat-form-field>
+
+    <mat-form-field class="form__item--shared">
+      <input matInput
+        placeholder="User"
+        id="user"
+        name="user"
+        ngModel
+        required>
+    </mat-form-field>
+
+    <mat-form-field class="form__item--shared">
+      <mat-select placeholder="Status" id="status" name="status" ngModel required>
+        <mat-option value="N">No Validated</mat-option>
+        <mat-option value="V">Verified</mat-option>
+        <mat-option value="D">Discarted</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form__item--shared">
+      <input matInput placeholder="Rating" type="number" id="rating" name="rating" ngModel required>
+    </mat-form-field>
+
+    <mat-form-field class="form__item--full">
+      <textarea matInput placeholder="Body" id="body" name="body" ngModel required></textarea>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!f.valid">Submit</button>
+  </form>
+
+</div>

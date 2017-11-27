@@ -1,0 +1,20 @@
+.form__container {
+  min-width: 150px;
+  width: 100%;
+}
+
+.form__item--full {
+  width: 100%;
+}
+
+.form__item--shared {
+  width: 30%;
+  margin-right: 10px;
+}
+
+@media (max-width: 430px) {
+  .form__item--shared {
+    width: 100%;
+    margin: 0;
+  }
+}

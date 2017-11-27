@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from './shared/shared.module';
 
@@ -13,6 +14,7 @@ import { ConsultantsComponent } from './consultants/consultants.component';
 import { ConsultantsService } from './consultants/consultants.service';
 import { ConsultantInfoComponent } from './consultants/consultant-info/consultant-info.component';
 import { ConsultantCommentsComponent } from './consultants/consultant-info/consultant-comments/consultant-comments.component';
+import { NewCommentComponent } from './consultants/consultant-info/consultant-comments/new-comment/new-comment.component';
 
 
 @NgModule({
@@ -22,12 +24,14 @@ import { ConsultantCommentsComponent } from './consultants/consultant-info/consu
     HomeComponent,
     ConsultantsComponent,
     ConsultantInfoComponent,
-    ConsultantCommentsComponent
+    ConsultantCommentsComponent,
+    NewCommentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     SharedModule
   ],
   providers: [ConsultantsService],

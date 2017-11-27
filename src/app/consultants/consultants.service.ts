@@ -45,4 +45,16 @@ export class ConsultantsService {
     });
   }
 
+  postNewComment(newComment: Object) {
+    const req = this.http.post('http://demopeople.exolever.com/api/comment/', newComment)
+      .subscribe(
+        res => {
+          console.log(res);
+        },
+        err => {
+          console.log('Error occured');
+        }
+      );
+  }
+
  }
