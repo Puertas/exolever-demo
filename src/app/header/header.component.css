@@ -3,4 +3,5 @@ mat-icon {
   height: 64px;
   font-size: 3.3em;
   margin-right: 0.4em;
+  cursor: pointer;
 }

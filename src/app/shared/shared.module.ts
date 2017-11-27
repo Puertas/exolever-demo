@@ -9,7 +9,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatProgressSpinnerModule,
-  MatCardModule } from '@angular/material';
+  MatCardModule,
+  MatExpansionModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoadingComponent } from './loading/loading.component';
@@ -28,7 +29,8 @@ import { LoadingComponent } from './loading/loading.component';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule
   ]
 })
 export class SharedModule { }

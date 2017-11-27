@@ -1,1 +1,32 @@
-<mat-card>Simple card</mat-card>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let comment of comments">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{comment.user}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{comment.subject}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="comment__header">
+      <div class="comment__item">
+        <mat-icon color="warn">stars</mat-icon>
+        <span>{{comment.rating}}</span>
+      </div>
+      <div class="comment__item">
+        <mat-icon color="accent">check_circle</mat-icon>
+        <span>{{comment.status}}</span>
+      </div>
+      <div class="comment__item">
+        <mat-icon color="primary">today</mat-icon>
+        <span>{{comment.created | date}}</span>
+      </div>
+    </div>
+
+    <div class="comment__body">
+      <h3>Comment</h3>
+      {{comment.body}}
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

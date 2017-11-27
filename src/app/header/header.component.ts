@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title = 'Exolever Demo';
-  icon = 'perm_contact_calendar';
+  icon = 'all_inclusive';
   color = 'primary';
 
   constructor() { }

@@ -1,0 +1,13 @@
+mat-panel-description { justify-content: flex-end; }
+
+.comment__header { display: flex; }
+
+.comment__item {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment__item > mat-icon { margin-right: 5px; }
+.comment__body > h3 { border-bottom: 1px solid #3f50b54d; }
