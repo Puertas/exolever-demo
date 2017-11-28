@@ -12,6 +12,8 @@ import { ConsultantsService } from '../../../consultants.service';
 export class NewCommentComponent implements OnInit {
   @ViewChild('f') newCommentForm: NgForm;
   id: number;
+  submitted = true;
+  requiredText = 'You must enter a value';
 
   constructor(private route: ActivatedRoute,
               private consultantsService: ConsultantsService) { }
@@ -30,6 +32,7 @@ export class NewCommentComponent implements OnInit {
         'consultant': this.id
     };
     this.consultantsService.postNewComment(formData);
+    this.submitted = true;
     // TODO: post handling and navigate
   }
 

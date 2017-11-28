@@ -11,7 +11,8 @@ import {
   MatProgressSpinnerModule,
   MatCardModule,
   MatExpansionModule,
-  MatSelectModule } from '@angular/material';
+  MatSelectModule,
+  MatProgressBarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoadingComponent } from './loading/loading.component';
@@ -32,7 +33,8 @@ import { LoadingComponent } from './loading/loading.component';
     MatProgressSpinnerModule,
     MatCardModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressBarModule
   ]
 })
 export class SharedModule { }

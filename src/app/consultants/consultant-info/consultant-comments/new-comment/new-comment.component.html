@@ -1,4 +1,4 @@
-<div class="form__container">
+<div class="form__container" *ngIf="!submitted">
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <mat-form-field class="form__item--full">
       <input matInput
@@ -6,7 +6,9 @@
         id="subject"
         name="subject"
         ngModel
-        required>
+        required
+        #subject="ngModel">
+        <mat-error *ngIf="!subject.valid && subject.touched">{{requiredText}}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form__item--shared">
@@ -15,23 +17,28 @@
         id="user"
         name="user"
         ngModel
-        required>
+        required
+        #user="ngModel">
+        <mat-error *ngIf="!user.valid && user.touched">{{requiredText}}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form__item--shared">
-      <mat-select placeholder="Status" id="status" name="status" ngModel required>
+      <mat-select placeholder="Status" id="status" name="status" ngModel required #status="ngModel">
         <mat-option value="N">No Validated</mat-option>
         <mat-option value="V">Verified</mat-option>
         <mat-option value="D">Discarted</mat-option>
       </mat-select>
+      <mat-error *ngIf="!status.valid && status.touched">{{requiredText}}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form__item--shared">
-      <input matInput placeholder="Rating" type="number" id="rating" name="rating" ngModel required>
+      <input matInput placeholder="Rating" type="number" id="rating" name="rating" ngModel required #rating="ngModel">
+      <mat-error *ngIf="!rating.valid && rating.touched">{{requiredText}}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form__item--full">
-      <textarea matInput placeholder="Body" id="body" name="body" ngModel required></textarea>
+      <textarea matInput placeholder="Body" id="body" name="body" ngModel required #body="ngModel"></textarea>
+      <mat-error *ngIf="!body.valid && body.touched">{{requiredText}}</mat-error>
     </mat-form-field>
     <button
       mat-raised-button
@@ -39,5 +46,9 @@
       type="submit"
       [disabled]="!f.valid">Submit</button>
   </form>
-
 </div>
+
+<mat-card *ngIf="submitted">
+  <p>Posting Comment</p>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</mat-card>
