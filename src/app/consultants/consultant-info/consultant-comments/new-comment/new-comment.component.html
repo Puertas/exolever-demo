@@ -49,6 +49,14 @@
 </div>
 
 <mat-card *ngIf="submitted">
-  <p>Posting Comment</p>
-  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <div *ngIf="loading">
+    <p>Posting Comment</p>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <div *ngIf="!loading">
+    <p>{{submitResponse}}</p>
+    <button mat-raised-button color="{{error ? 'warn' : 'primary'}}" (click)="goToConsultant()">
+      Go To Consultant
+    </button>
+  </div>
 </mat-card>

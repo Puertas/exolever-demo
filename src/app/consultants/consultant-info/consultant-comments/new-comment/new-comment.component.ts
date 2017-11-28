@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import { ConsultantsService } from '../../../consultants.service';
@@ -12,10 +12,14 @@ import { ConsultantsService } from '../../../consultants.service';
 export class NewCommentComponent implements OnInit {
   @ViewChild('f') newCommentForm: NgForm;
   id: number;
-  submitted = true;
+  submitted = false;
+  loading = false;
+  error = false;
   requiredText = 'You must enter a value';
+  submitResponse: string;
 
-  constructor(private route: ActivatedRoute,
+  constructor(private router: Router,
+              private route: ActivatedRoute,
               private consultantsService: ConsultantsService) { }
 
   ngOnInit() {
@@ -31,9 +35,22 @@ export class NewCommentComponent implements OnInit {
         'user': this.newCommentForm.value.user,
         'consultant': this.id
     };
-    this.consultantsService.postNewComment(formData);
+    const submitPromise = this.consultantsService.postNewComment(formData);
     this.submitted = true;
+    this.loading = true;
+    submitPromise.then((msg: string) => {
+      this.loading = false;
+      this.submitResponse = msg;
+    }).catch((msg: string) => {
+      this.error = true;
+      this.loading = false;
+      this.submitResponse = msg;
+    });
     // TODO: post handling and navigate
+  }
+
+  goToConsultant() {
+    this.router.navigate([`/consultants`]);
   }
 
 }

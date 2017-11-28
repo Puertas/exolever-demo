@@ -23,10 +23,15 @@ export class ConsultantsService {
     }
   }
 
+  private clearConsultant(): void {
+    this.consultants = null;
+  }
+
   setConsultants(consultants: Consultant[]): void {
     this.consultants = consultants;
     this.consultantsChanged.next(this.consultants.slice());
   }
+
   getConsultants(): Consultant[] {
     return this.consultants.slice();
   }
@@ -45,16 +50,19 @@ export class ConsultantsService {
     });
   }
 
-  postNewComment(newComment: Object) {
-    const req = this.http.post('http://demopeople.exolever.com/api/comment/', newComment)
+  postNewComment(newComment: Object): Promise<string> {
+    this.clearConsultant();
+    return new Promise((resolve, reject) => {
+      this.http.post('http://demopeople.exolever.com/api/comment/', newComment)
       .subscribe(
         res => {
-          console.log(res);
+          resolve('You comment has been submitted correctly!');
         },
         err => {
-          console.log('Error occured');
+          reject('Ooops!! An error occurred while submitting your comment, refresh and try again later');
         }
       );
+    });
   }
 
  }
